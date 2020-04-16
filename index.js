@@ -1,6 +1,6 @@
-var through = require('through');
-var minimatch = require('minimatch');
-var objectAssign = require('object-assign');
+var through = require("./pre-bundled/node_modules/through");
+var minimatch = require("./pre-bundled/node_modules/minimatch");
+var objectAssign = require("./pre-bundled/node_modules/object-assign");
 
 var defaultIgnore = ['**/node_modules/**', '**/bower_components/**', '**/test/**', '**/tests/**', '**/*.json'];
 
@@ -39,7 +39,7 @@ function transform(options, file) {
     produceSourceMap: true
   }, options.instrumenterConfig);
 
-  var instrumenter = (options.instrumenter || require('istanbul-lib-instrument')).createInstrumenter(instrumenterConfig);
+  var instrumenter = (options.instrumenter || require("./pre-bundled/node_modules/istanbul-lib-instrument")).createInstrumenter(instrumenterConfig);
 
   var data = '';
   return through(function(buf) {
